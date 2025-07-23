@@ -26,3 +26,11 @@ urlpatterns = [
     path('member-area/', views.member_view, name='member_view'),
 ]
 
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('books/add/', views.add_book, name='add_book'),
+    path('books/<int:pk>/edit/', views.edit_book, name='edit_book'),
+    path('books/<int:pk>/delete/', views.delete_book, name='delete_book'),
+]
