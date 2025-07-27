@@ -1,5 +1,5 @@
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Submit</button>
-</form>
+from django import forms
+
+class ExampleForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
