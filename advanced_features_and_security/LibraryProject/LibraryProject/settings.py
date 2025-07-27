@@ -14,6 +14,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # Redirect all HTTP to HTTPS
 SECURE_SSL_REDIRECT = True  # Automatically redirects all HTTP requests to HTTPS
 
+# Recognize HTTPS headers from a proxy (e.g., Heroku, Nginx)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 # HTTP Strict Transport Security (HSTS)
 SECURE_HSTS_SECONDS = 31536000  # Enforce HTTPS for 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Include all subdomains in the policy
