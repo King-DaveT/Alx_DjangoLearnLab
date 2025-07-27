@@ -16,6 +16,7 @@ def create_book(request):
         Book.objects.create(title=title, author=author)
         return redirect('view_books')
     return render(request, 'books/create_book.html')
+    'book_list'
 
 @permission_required('relationship_app.can_edit', raise_exception=True)
 def edit_book(request, book_id):
