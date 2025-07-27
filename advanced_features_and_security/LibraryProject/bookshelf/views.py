@@ -33,3 +33,9 @@ def delete_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     book.delete()
     return redirect('view_books')
+    
+Book.objects.filter(title__icontains=user_input)
+
+form = MyForm(request.POST)
+if form.is_valid():
+    # process data safely
