@@ -123,3 +123,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# SECURITY: Don't show debug info in production
+DEBUG = False  # Make sure this is only False in production!
+
+# SECURITY HEADERS
+SECURE_BROWSER_XSS_FILTER = True  # Enables the X-XSS-Protection header
+X_FRAME_OPTIONS = 'DENY'  # Prevents clickjacking
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Stops the browser from guessing file types
+
+# COOKIES MUST BE SENT OVER HTTPS
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
