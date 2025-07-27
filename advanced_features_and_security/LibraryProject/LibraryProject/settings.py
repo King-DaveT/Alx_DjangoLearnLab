@@ -9,6 +9,33 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+# settings.py
+
+# Redirect all HTTP to HTTPS
+SECURE_SSL_REDIRECT = True  # Automatically redirects all HTTP requests to HTTPS
+
+# HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  # Enforce HTTPS for 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Include all subdomains in the policy
+SECURE_HSTS_PRELOAD = True  # Allows inclusion in browser preload lists
+
+# settings.py
+
+# Cookies should only be sent over HTTPS
+SESSION_COOKIE_SECURE = True  # Secures session cookies
+CSRF_COOKIE_SECURE = True     # Secures CSRF cookies
+
+# settings.py
+
+# Clickjacking protection
+X_FRAME_OPTIONS = "DENY"  # Prevents the site from being embedded in iframes
+
+# Prevent MIME-type sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Enable browser XSS filter
+SECURE_BROWSER_XSS_FILTER = True
+
 
 from pathlib import Path
 
