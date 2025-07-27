@@ -31,7 +31,8 @@ AUTH_USER_MODEL = 'bookshelf.CustomUser'
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS += [
+    'csp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     'users',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE += [
+    'csp.middleware.CSPMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,6 +54,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Basic CSP config
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'",)
+CSP_IMG_SRC = ("'self'", 'data:')
 ROOT_URLCONF = 'django_models.urls'
 
 TEMPLATES = [
